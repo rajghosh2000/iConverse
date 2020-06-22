@@ -1,0 +1,6 @@
+<?php
+
+//Connecting to database
+
+
+?>
