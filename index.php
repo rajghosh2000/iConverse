@@ -28,22 +28,28 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://source.unsplash.com/2000x800/?coding,hacking" class="d-block w-100" alt="...">
+                <img src="/php/Forum-Web/img/1.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/2000x800/?coding,github" class="d-block w-100" alt="...">
+                <img src="/php/Forum-Web/img/1.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/2000x800/?coding,programming" class="d-block w-100" alt="...">
+                <img src="/php/Forum-Web/img/1.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/2000x800/?coding,windows" class="d-block w-100" alt="...">
+                <img src="/php/Forum-Web/img/1.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/2000x800/?coding,gaming" class="d-block w-100" alt="...">
+                <img src="/php/Forum-Web/img/1.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
