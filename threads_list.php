@@ -29,13 +29,44 @@
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 class="text-sm title-font text-gray-600 tracking-widest">Category</h2>
                     <h1 class="text-white text-3xl title-font font-medium mb-1">Java</h1>
-                   
+
                     <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha
                         taximy chia microdosing tilde DIY. XOXO fam $pinkjuiceramps cornhole raw denim forage brooklyn.
                         Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over,
                         neutra jean shorts keytar banjo tattooed umami cardigan.</p>
-                        <button class="btn btn-outline-success ml-0 my-3">Learn More</button>
+                    <button class="btn btn-outline-success ml-0 my-3">Learn More</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-15 mx-auto flex flex-wrap">
+            <div class="flex flex-col text-center w-full mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Browse Questions</h1>
+            </div>
+    </section>
+
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-20 mx-0">
+            <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+                <div
+                    class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
                     
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h2 class="text-white text-lg title-font font-medium mb-0">Shooting Stars</h2>
+                    <p class="leading-relaxed text-base py-3">Blue bottle crucifix vinyl post-ironic four dollar toast
+                        vegan
+                        taxidermy. Gastropub indxgo juice poutine.</p>
                 </div>
             </div>
         </div>
