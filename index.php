@@ -70,7 +70,7 @@
                 $sql = "SELECT * FROM `category`";
                 $res = mysqli_query($con,$sql);
                
-                // <!-- Use a for loop to iterate through the categories -->
+                // <!-- Use a for loop to iterate through the categories there -->
 
                 while($row = mysqli_fetch_assoc($res))
                 {
