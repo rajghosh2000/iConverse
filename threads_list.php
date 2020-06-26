@@ -18,6 +18,23 @@
 
     <?php include 'partials/_header.php';?>
     <?php include 'partials/_dbconnect.php'?>
+    <?php
+
+    $id = $_GET['category_id'];
+
+     $sql = "SELECT * FROM `category` WHERE cat_id=$id";
+     $res = mysqli_query($con,$sql);
+    
+     // <!-- Use a for loop to iterate through the categories -->
+
+     while($row = mysqli_fetch_assoc($res))
+     {
+          $catname = $row['cat_name'];
+          $catinfo = $row['cat_info'];
+     }
+    
+    
+    ?>
 
 
 
@@ -25,15 +42,12 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                    src="https://source.unsplash.com/1200x400/?java,programming">
+                    src="https://source.unsplash.com/1200x400/?catname,coding">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 class="text-sm title-font text-gray-600 tracking-widest">Category</h2>
-                    <h1 class="text-white text-3xl title-font font-medium mb-1">Java</h1>
+                    <h1 class="text-white text-3xl title-font font-medium mb-1"><?php echo $catname;?></h1>
 
-                    <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha
-                        taximy chia microdosing tilde DIY. XOXO fam $pinkjuiceramps cornhole raw denim forage brooklyn.
-                        Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over,
-                        neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+                    <p class="leading-relaxed"><?php echo $catinfo;?></p>
                     <button class="btn btn-outline-success ml-0 my-3">Learn More</button>
 
                 </div>
