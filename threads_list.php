@@ -42,7 +42,7 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                    src="https://source.unsplash.com/1200x400/?catname,coding">
+                    src="https://source.unsplash.com/1200x400/?catname,programming">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 class="text-sm title-font text-gray-600 tracking-widest">Category</h2>
                     <h1 class="text-white text-3xl title-font font-medium mb-1"><?php echo $catname;?></h1>
@@ -66,10 +66,42 @@
 
     <section class="text-gray-500 bg-gray-900 body-font">
         <div class="container px-5 py-20 mx-0">
-            <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+            <?php
+
+                $id = $_GET['category_id'];
+
+                $sql = "SELECT * FROM `thread` WHERE thread_cat_id = $id";
+                $res = mysqli_query($con,$sql);
+
+                // <!-- Use a for loop to iterate through the categories -->
+
+                while($row = mysqli_fetch_assoc($res))
+                {
+                    $th_title = $row['thread_title'];
+                    $th_info = $row['thread_info'];
+                    $th_id = $row['thread_id'];
+                   echo' <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
                 <div
                     class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
-                    
+
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h2 class="text-white text-lg title-font font-medium mb-0"><a href="thread.php">'.$th_title.'</a></h2>
+                    <p class="leading-relaxed text-base py-3">'.$th_info.'</p>
+                </div>
+            </div>';
+                }
+            ?>
+           
+            <!-- <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+                <div
+                    class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
+
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
                         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
@@ -82,7 +114,7 @@
                         vegan
                         taxidermy. Gastropub indxgo juice poutine.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 

@@ -2,8 +2,8 @@
 
 echo '
 
-<footer class="text-gray-500 bg-gray-900 body-font">
-  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+<footer class="text-gray-500 bg-gray-900 body-font fixed-bottom">
+  <div class="container px-5 py-19 mx-auto flex items-center sm:flex-row flex-col">
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
       
      
