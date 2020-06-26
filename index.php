@@ -77,6 +77,7 @@
                   // echo $row['cat_name'];
                   $name = $row['cat_name'];
                   $info = $row['cat_info'];
+                  $id = $row['cat_id']
                   
                     echo' <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a class="block relative h-48 rounded overflow-hidden">
@@ -87,8 +88,8 @@
                                 <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">'. $name .'</h3>
                                 <h2 class="text-white title-font text-lg font-medium">' . substr($info, 0, 32) .'....</h2>
                               
-                                <button type="button" class="btn btn-outline-success btn-sm my-2">Let\'s Explore</button>
-                            </div>
+                                <button type="button" class="btn btn-outline-success btn-sm my-2"><a href="/threadlist.php">Let\'s Explore</button>
+                            </div></a>
                           </div> ';
                 }
 
