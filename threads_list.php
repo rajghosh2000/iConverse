@@ -58,7 +58,7 @@
 
     <section class="text-gray-500 bg-gray-900 body-font">
         <div class="container px-5 py-15 mx-auto flex flex-wrap">
-            <div class="flex flex-col text-center w-full mb-20">
+            <div class="flex flex-col text-center w-full mb-15">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Browse Questions</h1>
             </div>
     </section>
@@ -91,7 +91,7 @@
                     </svg>
                 </div>
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                    <h2 class="text-white text-lg title-font font-medium mb-0"><a href="thread.php">'.$th_title.'</a></h2>
+                    <h2 class="text-white text-lg title-font font-medium mb-0"><a href="thread.php?thread_id='.$th_id.'">'.$th_title.'</a></h2>
                     <p class="leading-relaxed text-base py-3">'.$th_info.'</p>
                 </div>
             </div>';
