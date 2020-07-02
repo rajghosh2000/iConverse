@@ -11,8 +11,17 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
-    <title>Welcome to iConverse</title>
+    <title>iConverse</title>
 </head>
+<style>
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(65, 131, 215, 1);
+}
+}
+</style>
 
 <body>
 
@@ -36,11 +45,9 @@
     
     ?>
 
-
-
     <section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <div class="container px-2 py-20 mx-auto">
+            <div class="lg:w-4/5 py-10 mx-auto flex flex-wrap">
                 <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
                     src="https://source.unsplash.com/1200x400/?catname,programming">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -52,35 +59,51 @@
 
                 </div>
             </div>
-        </div>
-    </section>
 
-
-    <section class="text-gray-500 bg-gray-900 body-font">
-        <div class="container px-5 py-15 mx-auto flex flex-wrap">
-            <div class="flex flex-col text-center w-full mb-15">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Browse Questions</h1>
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-2xl text-2xl font-medium title-font mb-4 text-white">Ask your Query</h1>
             </div>
-    </section>
-
-
-    <section class="text-gray-500 bg-gray-900 body-font">
-        <div class="container px-5 py-20 mx-0">
-            <?php
+            <div class="lg:w-1/2 md:w-2/3 border-b pb-10 mb-10 border-gray-800 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-full">
+                        <input
+                            class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-2 py-2"
+                            placeholder="Name" name="nam" id="nam" type="text">
+                    </div>
+                    <div class="p-2 w-full">
+                        <input
+                            class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-2 py-2"
+                            placeholder="Enter a brief title for your query" name="title" id="title" type="text">
+                    </div>
+                    <div class="p-2 w-full">
+                        <textarea
+                            class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-2 py-2 resize-none block"
+                            placeholder="Enter your desc" name="desc" id="desc"></textarea>
+                    </div>
+                    <div class="p-2 w-full">
+                        <button
+                            class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+                    </div>
+                </div>
+            </div>
+             
+                <?php
 
                 $id = $_GET['category_id'];
 
                 $sql = "SELECT * FROM `thread` WHERE thread_cat_id = $id";
                 $res = mysqli_query($con,$sql);
-
+                $noData = true;
                 // <!-- Use a for loop to iterate through the categories -->
 
                 while($row = mysqli_fetch_assoc($res))
                 {
+                    $noData = false;
                     $th_title = $row['thread_title'];
                     $th_info = $row['thread_info'];
                     $th_id = $row['thread_id'];
-                   echo' <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+                   
+                   echo' <div class="flex items-center py-10 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
                 <div
                     class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
 
@@ -90,15 +113,20 @@
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </div>
-                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-5 mt-6 lg:mt-0">
                     <h2 class="text-white text-lg title-font font-medium mb-0"><a href="thread.php?thread_id='.$th_id.'">'.$th_title.'</a></h2>
                     <p class="leading-relaxed text-base py-3">'.$th_info.'</p>
                 </div>
             </div>';
                 }
+                if($noData)
+                {
+                   echo '<p class="lg:w-2/3 mx-auto leading-relaxed text-base">No questions yet be the first one to ask</p>
+                   '; 
+                }
             ?>
-           
-            <!-- <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+
+                <!-- <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
                 <div
                     class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
 
@@ -115,7 +143,7 @@
                         taxidermy. Gastropub indxgo juice poutine.</p>
                 </div>
             </div> -->
-        </div>
+            </div>
     </section>
 
 

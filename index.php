@@ -11,7 +11,7 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
-    <title>Welcome to iConverse</title>
+    <title>iConverse</title>
 </head>
 
 <body>
@@ -32,19 +32,19 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/Forum-Web/img/1.jpeg" class="d-block w-100" alt="...">
+                <img src="/Forum-Web/img/144.jpeg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/Forum-Web/img/2.jpeg" class="d-block w-100" alt="...">
+                <img src="/Forum-Web/img/244.jpeg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/Forum-Web/img/3.jpeg" class="d-block w-100" alt="...">
+                <img src="/Forum-Web/img/344.jpeg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/Forum-Web/img/11.jpeg" class="d-block w-100" alt="...">
+                <img src="/Forum-Web/img/141.jpeg" class="d-block w-100" alt="...">
             </div> -->
             <div class="carousel-item">
-                <img src="/Forum-Web/img/12.jpeg" class="d-block w-100" alt="...">
+                <img src="/Forum-Web/img/142.jpeg" class="d-block w-100" alt="...">
             </div>
 
         </div>
