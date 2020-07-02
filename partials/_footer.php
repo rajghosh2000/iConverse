@@ -9,7 +9,7 @@ echo '
 
     </a>
     <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2020 Copyright —
-      <a href="#" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">iConverse</a> |All rights reserved
+      <a href="/Forum-Web" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">iConverse</a> |All rights reserved
     </p>
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
       <a class="text-gray-600">

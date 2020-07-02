@@ -14,15 +14,15 @@
     <title>iConverse</title>
 </head>
 <style>
-    hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(65, 131, 215, 1);
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(65, 131, 215, 1);
 }
 }
-
 </style>
+
 <body>
 
     <?php include 'partials/_header.php';?>
@@ -46,52 +46,122 @@
     
     ?>
 
-<section class="text-gray-500 bg-gray-900 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -m-4">
-      <div class="p-4 md:w-3/4 w-full">
-        <div class="h-full bg-gray-800 p-8 rounded">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-600 mb-4" viewBox="0 0 975.036 975.036">
-            <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-          </svg>
-          <a class="inline-flex items-center">
-            <?php echo'<img src="img/' .$cat_th_id. '.png" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">';?>
-            <span class="flex-grow flex flex-col pl-4">
-              <span class="title-font font-medium text-white"><?php echo $th_name;?></span>
-              <span class="text-gray-600 text-sm">UI DEVELOPER</span>
-            </span>
-          </a>
-          <p class="leading-relaxed mb-6 px-6 text-green-500"><?php echo $th_desc;?></p>
-          
-        </div>
-      </div>
-      
-    </div>
-    <div class="flex flex-col px-20 py-20 w-full mb-15">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Discussions</h1>
-    </div>
-    <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
-      <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
-        <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
-      </div>
-      <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">1</div>
-      <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-        <div class="flex-shrink-0 w-24 h-24 bg-gray-800 text-indigo-400 rounded-full inline-flex items-center justify-center">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
-        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-          <h2 class="font-medium title-font text-white mb-1 text-xl">Neptune</h2>
-          <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard .</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 md:w-3/4 w-full">
+                    <div class="h-full bg-gray-800 p-8 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            class="block w-5 h-5 text-gray-600 mb-4" viewBox="0 0 975.036 975.036">
+                            <path
+                                d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                            </path>
+                        </svg>
+                        <a class="inline-flex items-center">
+                            <?php echo'<img src="img/' .$cat_th_id. '.png" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">';?>
+                            <span class="flex-grow flex flex-col pl-4">
+                                <span class="title-font font-medium text-white"><?php echo $th_name;?></span>
+                                <span class="text-gray-600 text-sm">UI DEVELOPER</span>
+                            </span>
+                        </a>
+                        <p class="leading-relaxed mb-6 px-6 text-green-500"><?php echo $th_desc;?></p>
 
-    
+                    </div>
+                </div>
+
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 border-b pb-10 mb-10 border-gray-800 mx-auto">
+                <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
+                    <div class="flex flex-wrap -m-2">
+                        <div class="flex flex-col px-1 p-4 w-full mb-15">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Add Your Reply</h1>
+                        </div>
+                        <div class="w-full">
+                            <textarea
+                                class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-2 py-2 resize-none block"
+                                placeholder="Your Reply" name="cmt" id="cmt"></textarea>
+                        </div>
+                        <div class="p-2 w-full">
+                            <button type="submit"
+                                class="flex mx-auto text-blue-900 font-bold bg-green-500 border-0 py-3 px-10 focus:outline-none hover:bg-green-600 rounded text-lg">Post Your Comment</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="flex flex-col px-20 py-20 w-full mb-15">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Discussions</h1>
+            </div>
+
+          <?php
+              $sql1 = "SELECT * FROM `answers` WHERE ans_thread_id=$id";
+              $res1 = mysqli_query($con,$sql1);
+              $noAns = true;
+              $cnt=0;
+              // <!-- Use a for loop to iterate through the categories -->
+         
+              while($row = mysqli_fetch_assoc($res1))
+              {
+                   $noAns = false;
+                   $ans_info = $row['ans_info'];
+                   $ans_id = $row['ans_id'];
+                   $cnt = $cnt + 1;
+                   echo '<div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+                   <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                       <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+                   </div>
+                   <div
+                       class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">
+                       '.$cnt.'</div>
+                   <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                       <div
+                           class="flex-shrink-0 w-24 h-24 bg-gray-800 text-indigo-400 rounded-full inline-flex items-center justify-center">
+                           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                               stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                               <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                               <circle cx="12" cy="7" r="4"></circle>
+                           </svg>
+                       </div>
+                       <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                           <h2 class="font-medium title-font text-white mb-1 text-xl">RAJ</h2>
+                           <p class="leading-relaxed">'.$ans_info.'</p>
+                       </div>
+                   </div>
+               </div>';
+              }
+
+              if($noAns)
+              {
+                echo '<div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+                <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                    <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+                </div>
+                <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">
+                    0</div>
+                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                    <div
+                        class="flex-shrink-0 w-24 h-24 bg-gray-800 text-indigo-400 rounded-full inline-flex items-center justify-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                        <p class="leading-relaxed">No answers yet. Go up and be the first to comment. </p>
+                    </div>
+                </div>
+            </div>';
+              }
+              
+          ?>
+
+            
+        </div>
+    </section>
+
+
 
 
 
