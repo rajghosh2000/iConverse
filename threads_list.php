@@ -127,6 +127,7 @@ hr {
                     $th_title = $row['thread_title'];
                     $th_info = $row['thread_info'];
                     $th_id = $row['thread_id'];
+                    $th_time = $row['datestamp'];
                    echo' <div class="flex items-center py-10 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
                 <div
                     class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
@@ -138,6 +139,7 @@ hr {
                     </svg>
                 </div>
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-5 mt-6 lg:mt-0">
+                    <span class="text-green-600 text-base font-bold ">UI DEVELOPER <span class="text-xs"> at '.$th_time.'</span></span>
                     <h2 class="text-white text-lg title-font font-medium mb-0"><a href="thread.php?thread_id='.$th_id.'">'.$th_title.'</a></h2>
                     <p class="leading-relaxed text-base py-3">'.$th_info.'</p>
                 </div>

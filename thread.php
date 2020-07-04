@@ -86,7 +86,7 @@ hr {
                                 <span class="text-gray-600 text-sm">UI DEVELOPER</span>
                             </span>
                         </a>
-                        <p class="leading-relaxed mb-6 px-6 text-green-500"><?php echo $th_desc;?></p>
+                        <p class="leading-relaxed mb-6 px-16 text-green-500"><?php echo $th_desc;?></p>
 
                     </div>
                 </div>
@@ -105,7 +105,8 @@ hr {
                         </div>
                         <div class="p-2 w-full">
                             <button type="submit"
-                                class="flex mx-auto text-blue-900 font-bold bg-green-500 border-0 py-3 px-10 focus:outline-none hover:bg-green-600 rounded text-lg">Post Your Comment</button>
+                                class="flex mx-auto text-blue-900 font-bold bg-green-500 border-0 py-3 px-10 focus:outline-none hover:bg-green-600 rounded text-lg">Post
+                                Your Comment</button>
                         </div>
 
                     </div>
@@ -115,7 +116,7 @@ hr {
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Discussions</h1>
             </div>
 
-          <?php
+            <?php
               $sql1 = "SELECT * FROM `answers` WHERE ans_thread_id=$id";
               $res1 = mysqli_query($con,$sql1);
               $noAns = true;
@@ -180,7 +181,7 @@ hr {
               
           ?>
 
-            
+
         </div>
     </section>
 
