@@ -22,25 +22,26 @@
 
     <section class="text-gray-500 bg-gray-900 body-font">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
                 <img class="object-cover object-center rounded" alt="hero" src="img/ME.jpg">
             </div>
             <div
                 class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Rajdeep Ghosh</h1>
-                <p class="mb-8 leading-relaxed text-justify">I am a Btech Student Studying in Tezpur University. This a
+                <p class="mb-8 leading-relaxed ">I am a Btech Student Studying in Tezpur University. This a
                     dummy website which created for personal practice. This forum is a type clone of famous webites such
                     as Stack Overflow and other forum Websites. You can reach to me using the following options given
                     down.</p>
 
                 <p class="text-sm mt-2 text-gray-600 mb-8 w-full text-justify">Reach Out to me</p>
                 <div class="flex lg:flex-row md:flex-col text-gray-300">
-                    <a href="https://twitter.com/RAJDEEP93026376">
+                    
                         <button
                             class="bg-gray-800 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-700 hover:text-white focus:outline-none">
 
-                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                class="w-10 h-10" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="w-6 h-6" viewBox="0 0 24 24">
                                 <path
                                     d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
                                 </path>
@@ -50,13 +51,11 @@
                                 <span class="title-font font-medium">Twitter Profile</span>
                             </span>
                         </button>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rajdeep-ghosh-301082175/">
+                        
                         <button
                             class="bg-gray-800 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-700 hover:text-white focus:outline-none lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0">
 
-                            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="0" class="w-10 h-10" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"  class="w-6 h-6" viewBox="0 0 24 24">
                                 <path stroke="none"
                                     d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
                                 </path>
@@ -66,19 +65,17 @@
                             <span class="ml-4 flex items-start flex-col leading-none">
 
                                 <span class="text-xs text-gray-500 mb-1">LinkedIn</span>
-                                <span class="title-font font-medium">LinkedIn Id</span>
+                                <span class="title-font font-medium">LinkedIn Profile</span>
                             </span>
 
                         </button>
-                    </a>
+                        <!-- <a href="https://twitter.com/RAJDEEP93026376" target="_blank"> </a>
+                    <a href="https://www.linkedin.com/in/rajdeep-ghosh-301082175/" target="_blank"> </a> -->
                 </div>
-
             </div>
-
-        </div>
-
-        <div class="container px-5 py-1 mx-auto">
-            <div class="flex flex-wrap -m-4">
+            </div>
+    
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                 <div class="xl:w-1/3 md:w-1/2 p-4">
                     <div class="border border-gray-800 p-6 rounded-lg">
                         <div
@@ -90,7 +87,7 @@
                             </svg>
                         </div>
                         <h2 class="text-lg text-white font-medium title-font mb-2">GIT</h2>
-                        <p class="leading-relaxed text-base"><a href="https://github.com/rajghosh2000">rajghosh2000</a>
+                        <p class="leading-relaxed text-base"><a href="https://github.com/rajghosh2000" target="_blank">rajghosh2000</a>
                         </p>
                     </div>
                 </div>
@@ -105,7 +102,7 @@
                         </div>
                         <h2 class="text-lg text-white font-medium title-font mb-2">Facebook</h2>
                         <p class="leading-relaxed text-base"><a
-                                href="https://www.facebook.com/profile.php?id=100027649521893">Rajdeep Ghosh</a></p>
+                                href="https://www.facebook.com/profile.php?id=100027649521893" target="_blank">Rajdeep Ghosh</a></p>
                     </div>
                 </div>
                 <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -120,7 +117,7 @@
                         </div>
                         <h2 class="text-lg text-white font-medium title-font mb-2">Instagram</h2>
                         <p class="leading-relaxed text-base"><a
-                                href="https://www.instagram.com/i_m_the_rajdeep/">i_m_the_rajdeep</a></p>
+                                href="https://www.instagram.com/i_m_the_rajdeep/" target="_blank">i_m_the_rajdeep</a></p>
                     </div>
                 </div>
             </div>

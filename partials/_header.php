@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+
+
 echo' 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 <a class="navbar-brand" href="/Forum-Web" >i<span style="color:#008000 ;font-weight: bold">Converse</span></a>
@@ -30,14 +34,32 @@ echo'
         <a class="nav-link" href="contact.php">Contact-Me</a>
     </li>
     </ul>
-    <div class="row mx-2">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <div class="row mx-2">';
+
+    if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
+{
+    echo '<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+    <p class="text-white px-5 py-1"> Welcome '. $_SESSION['useremail'].'</p>
+    <a href ="partials/_logout.php" type="button" class="btn btn-outline-success ml-2" >Logout</a>
+
+    </form>';
+}
+
+    else{
+        echo '<form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <button type="button" class="btn btn-outline-success ml-2" data-toggle="modal" data-target="#singinModal">SIGN IN</button>
-        <button type="button" class="btn btn-outline-success ml-2" data-toggle="modal" data-target="#singupModal">SIGN UP</button>
-    </div>
+                <button type="button" class="btn btn-outline-success ml-2" data-toggle="modal" data-target="#singinModal">SIGN IN</button>
+                <button type="button" class="btn btn-outline-success ml-2" data-toggle="modal" data-target="#singupModal">SIGN UP</button>';
+
+        }
+
+
+    echo '</div>
     
 </div>
 </nav>';
@@ -45,5 +67,16 @@ echo'
 include 'partials/_signinModal.php';
 include 'partials/_signupModal.php';
 
+
+if(isset($_GET['signUpSuccess']) && $_GET['signUpSuccess']=="true")
+{
+    
+    echo '<div class="alert alert-success alert-dismissible fade show py-16 my-0" role="alert">
+    <strong>Success!</strong> You can login now.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+}
 
 ?>

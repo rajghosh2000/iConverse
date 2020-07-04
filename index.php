@@ -61,7 +61,7 @@
 
     <section class="text-gray-500 bg-gray-900 body-font">
         <div class="container px-5 py-0 mx-auto flex flex-wrap">
-            <div class="flex flex-col text-center w-full mb-15" style="padding-top: 75px">
+            <div class="flex flex-col text-center w-full mb-15" style="padding-top: 60px">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">CATELOGS</h1>
             </div>
     </section>
