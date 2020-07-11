@@ -82,35 +82,45 @@ hr {
                     ?>
                 </div>
             </div>
-
-            <div class="flex flex-col text-center w-full mb-12">
+            <?php
+            if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
+            {
+                    echo'<div class="flex flex-col text-center w-full mb-12">
                 <h1 class="sm:text-2xl text-2xl font-medium title-font py-10 mb-4 text-green-400">Ask your Query</h1>
             </div>
             
                 <!--server request part for serving the url of the same page while sending to the sql see php documentation-->
                 <div class="lg:w-1/2 md:w-2/3 border-b pb-10 mb-10 border-gray-800 mx-auto">
-                <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
-                    <div class="flex flex-wrap -m-2">
-                        <div class="p-2 w-full">
-                            <input
-                                class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-2 py-2"
-                                placeholder="Enter a brief title for your query" name="title" id="title" type="text">
-                        </div>
-                        <div class="p-2 w-full">
-                            <textarea
-                                class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-2 py-2 resize-none block"
-                                placeholder="Enter your desc" name="desc" id="desc"></textarea>
-                        </div>
-                        <div class="p-2 w-full">
-                            <button type="submit"
-                                class="flex mx-auto text-white bg-green-500 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
-                        </div>
-
-                    </div>
-                    </form>
+                <form action=" '.$_SERVER["REQUEST_URI"] .' " method="post">
+            <div class="flex flex-wrap -m-2">
+                <div class="p-2 w-full">
+                    <input
+                        class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-2 py-2"
+                        placeholder="Enter a brief title for your query" name="title" id="title" type="text">
                 </div>
-           
-            <?php
+                <div class="p-2 w-full">
+                    <textarea
+                        class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-2 py-2 resize-none block"
+                        placeholder="Enter your desc" name="desc" id="desc"></textarea>
+                </div>
+                <div class="p-2 w-full">
+                    <button type="submit"
+                        class="flex mx-auto text-white bg-green-500 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                </div>
+
+            </div>
+            </form>
+        </div>';
+            }
+            else{
+                echo '<div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-2xl text-2xl font-medium title-font py-10 mb-4 text-green-400">Ask your Query</h1>
+                <h3 class="sm:text-2xl text-2xl font-medium  py-2 mb-4 text-blue-500">USER NOT LOGGED IN PLEASE LOG IN !!!</h1>
+            </div>';
+            }
+        ?>
+
+        <?php
 
                 $id = $_GET['category_id'];
 
@@ -128,7 +138,7 @@ hr {
                     $th_info = $row['thread_info'];
                     $th_id = $row['thread_id'];
                     $th_time = $row['datestamp'];
-                   echo' <div class="flex items-center py-10 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+                   echo' <div class="flex items-center py-6 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
                 <div
                     class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
 

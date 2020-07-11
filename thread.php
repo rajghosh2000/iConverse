@@ -92,26 +92,37 @@ hr {
                 </div>
 
             </div>
-            <div class="lg:w-1/2 md:w-2/3 border-b pb-10 mb-10 border-gray-800 mx-auto">
-                <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
-                    <div class="flex flex-wrap -m-2">
-                        <div class="flex flex-col px-1 p-4 w-full mb-15">
-                            <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Add Your Reply</h1>
-                        </div>
-                        <div class="w-full">
-                            <textarea
-                                class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-2 py-2 resize-none block"
-                                placeholder="Your Reply" name="cmt" id="cmt"></textarea>
-                        </div>
-                        <div class="p-2 w-full">
-                            <button type="submit"
-                                class="flex mx-auto text-blue-900 font-bold bg-green-500 border-0 py-3 px-10 focus:outline-none hover:bg-green-600 rounded text-lg">Post
-                                Your Comment</button>
-                        </div>
+            <?php
+            if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
+            {
+                  echo'  <div class="lg:w-1/2 md:w-2/3 border-b pb-10 mb-10 border-gray-800 mx-auto">
+                        <form action=" '.$_SERVER['REQUEST_URI'] .' " method="post">
+                            <div class="flex flex-wrap -m-2">
+                                <div class="flex flex-col px-1 p-4 w-full mb-15">
+                                    <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Add Your Reply</h1>
+                                </div>
+                                <div class="w-full">
+                                    <textarea
+                                        class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-2 py-2 resize-none block"
+                                        placeholder="Your Reply" name="cmt" id="cmt"></textarea>
+                                </div>
+                                <div class="p-2 w-full">
+                                    <button type="submit"
+                                        class="flex mx-auto text-blue-900 font-bold bg-green-500 border-0 py-3 px-10 focus:outline-none hover:bg-green-600 rounded text-lg">Post
+                                        Your Comment</button>
+                                </div>
 
-                    </div>
-                </form>
-            </div>
+                            </div>
+                        </form>
+                    </div>';
+            }
+            else{
+                echo '<div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-2xl text-2xl font-medium title-font py-10 mb-4 text-green-400">Ask your Query</h1>
+                <h3 class="sm:text-2xl text-2xl font-medium  py-2 mb-4 text-blue-500">USER NOT LOGGED IN PLEASE LOG IN !!!</h1>
+            </div>';
+            }
+            ?>
             <div class="flex flex-col px-20 py-20 w-full mb-15">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Discussions</h1>
             </div>
