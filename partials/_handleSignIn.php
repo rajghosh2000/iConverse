@@ -19,6 +19,7 @@
                 {
                         session_start();
                         $_SESSION['signedIn'] = true;
+                        $_SESSION['uid'] = $row['sno'];
                         $_SESSION['useremail'] = $uemail;    
                 }
                 else{

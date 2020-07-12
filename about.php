@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+    <?php include 'partials/_dbconnect.php'?>
     <?php include 'partials/_header.php';?>
 
     <section class="text-gray-500 bg-gray-900 body-font">

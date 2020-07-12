@@ -21,14 +21,21 @@ echo'
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown
+        Categories
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Categories</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+
+        $sql = "SELECT * FROM `category`";
+        $res = mysqli_query($con,$sql);
+       
+        // <!-- Use a for loop to iterate through the categories -->
+   
+        while($row = mysqli_fetch_assoc($res))
+        {
+            $catid = $row['cat_id'];
+            echo '<a class="dropdown-item" href="threads_list.php?category_id='.$catid.'">'.$row['cat_name'].'</a>';
+        }
+        echo '</div>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact-Me</a>
@@ -38,8 +45,8 @@ echo'
 
     if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
 {
-    echo '<form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    echo '<form class="form-inline my-2 my-lg-0 method="get" action="search.php"">
+    <input class="form-control mr-sm-2" name = "search" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
     <p class="text-white px-5 py-1"> Welcome '. $_SESSION['useremail'].'</p>

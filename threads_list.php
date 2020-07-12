@@ -24,9 +24,9 @@ hr {
 </style>
 
 <body>
-
-    <?php include 'partials/_header.php';?>
     <?php include 'partials/_dbconnect.php'?>
+    <?php include 'partials/_header.php';?>
+    
     <?php
 
     $id = $_GET['category_id'];
@@ -52,8 +52,15 @@ hr {
         if($method =='POST')
         {
             $thd_title = $_POST['title'];
+            $thd_title = str_replace("<","&lt;",$thd_title);
+            $thd_title = str_replace(">","&gt;",$thd_title);
+
             $thd_desc  = $_POST['desc'];
-            $sql1 = "INSERT INTO `thread` (`thread_title`, `thread_info`, `thread_cat_id`, `thread_user_id`, `datestamp`) VALUES ('$thd_title', '$thd_desc', '$id', '0', current_timestamp())";
+            $thd_desc = str_replace("<","&lt;",$thd_desc);
+            $thd_desc = str_replace(">","&gt;",$thd_desc);
+
+            $uid = $_POST['uid'];
+            $sql1 = "INSERT INTO `thread` (`thread_title`, `thread_info`, `thread_cat_id`, `thread_user_id`, `datestamp`) VALUES ('$thd_title', '$thd_desc', '$id', '$uid', current_timestamp())";
             $res1 = mysqli_query($con,$sql1);
             $showAlert = true;
             if($showAlert)
@@ -107,7 +114,9 @@ hr {
                     <button type="submit"
                         class="flex mx-auto text-white bg-green-500 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
                 </div>
-
+                <div class="w-full">
+                         <input type="hidden" name="uid" value = "'. $_SESSION["uid"] .'">
+                </div>
             </div>
             </form>
         </div>';
@@ -138,6 +147,12 @@ hr {
                     $th_info = $row['thread_info'];
                     $th_id = $row['thread_id'];
                     $th_time = $row['datestamp'];
+                    $th_u_id = $row['thread_user_id'];
+                    $sql16 = "SELECT `usr_email` FROM `usrs` WHERE `sno`='$th_u_id'";
+                    $res16 = mysqli_query($con,$sql16);
+                    $row16 = mysqli_fetch_assoc($res16);
+                    $arr = explode("@",$row16['usr_email'], 2);
+                    $first = $arr[0];
                    echo' <div class="flex items-center py-6 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
                 <div
                     class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
@@ -149,8 +164,8 @@ hr {
                     </svg>
                 </div>
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-5 mt-6 lg:mt-0">
-                    <span class="text-green-600 text-base font-bold ">UI DEVELOPER <span class="text-xs"> at '.$th_time.'</span></span>
                     <h2 class="text-white text-lg title-font font-medium mb-0"><a href="thread.php?thread_id='.$th_id.'">'.$th_title.'</a></h2>
+                    <span class="text-green-400 text-sm font-bold "> <span class="text-base text-blue-500">Asked by:</span> '. ucfirst($first) .' <span class="text-xs"> at '.$th_time.'</span></span>
                     <p class="leading-relaxed text-base py-3">'.$th_info.'</p>
                 </div>
             </div>';

@@ -24,9 +24,9 @@ hr {
 </style>
 
 <body>
-
-    <?php include 'partials/_header.php';?>
     <?php include 'partials/_dbconnect.php'?>
+    <?php include 'partials/_header.php';?>
+    
     <?php
 
     $id = $_GET['thread_id'];
@@ -41,6 +41,11 @@ hr {
           $th_name = $row['thread_title'];
           $th_desc = $row['thread_info'];
           $cat_th_id = $row['thread_cat_id'];
+          $th_u_id = $row['thread_user_id'];
+          $sql17 = "SELECT `usr_email` FROM `usrs` WHERE `sno`='$th_u_id'";
+          $res17 = mysqli_query($con,$sql17);
+          $row17 = mysqli_fetch_assoc($res17);
+         
      }
     
     
@@ -52,8 +57,12 @@ hr {
         $method = $_SERVER['REQUEST_METHOD'];
         if($method =='POST')
         {
+
             $ans = $_POST['cmt'];
-            $sql2 = "INSERT INTO `answers` (`ans_info`, `ans_thread_id`, `ans_by`, `ans_time`) VALUES ('$ans', '$id', '0', current_timestamp());";
+            $ans = str_replace("<","&lt;",$ans);
+            $ans = str_replace(">","&gt;",$ans);
+            $uid = $_POST['uid'];
+            $sql2 = "INSERT INTO `answers` (`ans_info`, `ans_thread_id`, `ans_by`, `ans_time`) VALUES ('$ans', '$id', '$uid', current_timestamp());";
             $res2 = mysqli_query($con,$sql2);
             $showAlert = true;
             if($showAlert)
@@ -83,15 +92,19 @@ hr {
                             <?php echo'<img src="img/' .$cat_th_id. '.png" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">';?>
                             <span class="flex-grow flex flex-col pl-4">
                                 <span class="title-font font-medium text-white"><?php echo $th_name;?></span>
-                                <span class="text-gray-600 text-sm">UI DEVELOPER</span>
+                                <span
+                                    class="text-gray-600 text-sm"><?php  $arr1 = explode("@",$row17['usr_email'], 2);
+                                                                                                $first1 = $arr1[0]; echo ucfirst($first1) ; ?>
+                                </span>
                             </span>
                         </a>
-                        <p class="leading-relaxed mb-6 px-16 text-green-500"><?php echo $th_desc;?></p>
+                        <p class="leading-relaxed mb-6 py-2 px-12 text-green-500"><?php echo $th_desc;?></p>
 
                     </div>
                 </div>
 
             </div>
+
             <?php
             if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
             {
@@ -111,7 +124,9 @@ hr {
                                         class="flex mx-auto text-blue-900 font-bold bg-green-500 border-0 py-3 px-10 focus:outline-none hover:bg-green-600 rounded text-lg">Post
                                         Your Comment</button>
                                 </div>
-
+                                <div class="w-full">
+                                     <input type="hidden" name="uid" value = "'. $_SESSION["uid"] .'">
+                                </div>
                             </div>
                         </form>
                     </div>';
@@ -123,7 +138,7 @@ hr {
             </div>';
             }
             ?>
-            <div class="flex flex-col px-20 py-20 w-full mb-15">
+            <div class="flex flex-col px-20 py-12 w-full mb-15">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Discussions</h1>
             </div>
 
@@ -141,6 +156,12 @@ hr {
                    $ans_id = $row['ans_id'];
                    $ans_time = $row['ans_time'];
                    $cnt = $cnt + 1;
+                   $th_u_id1 = $row['ans_by'];
+                   $sql18 = "SELECT `usr_email` FROM `usrs` WHERE `sno`='$th_u_id1'";
+                   $res18 = mysqli_query($con,$sql18);
+                   $row18 = mysqli_fetch_assoc($res18);
+                   $arr2 = explode("@",$row18['usr_email'], 2);
+                   $first2 = $arr2[0];
                    echo '<div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
                        <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
@@ -158,7 +179,7 @@ hr {
                            </svg>
                        </div>
                        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                           <h2 class="font-medium title-font text-white mb-1 text-xl">RAJ  <span class ="text-base text-green-500">at '.$ans_time.'</span></h2>
+                           <h2 class="font-medium title-font text-white mb-1 text-xl">'.ucfirst($first2) .'  <span class ="text-base text-green-500">at '.$ans_time.'</span></h2>
                            <p class="leading-relaxed">'.$ans_info.'</p>
                        </div>
                    </div>
