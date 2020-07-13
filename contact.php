@@ -20,6 +20,10 @@
     <?php include 'partials/_dbconnect.php'?>
     <?php include 'partials/_header.php';?>
     <?php include 'partials/_footer.php';?>
+
+
+
+
     <section class="text-gray-500 bg-gray-900 body-font relative">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
