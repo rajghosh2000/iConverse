@@ -18,17 +18,34 @@
     <?php include 'partials/_dbconnect.php'?>
     <?php include 'partials/_header.php';?>
 
+
+
+
     <!--Search Results here-->
     <section class="text-gray-500 bg-gray-900 body-font">
         <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-20 py-12">
+        <div class="flex flex-col text-center w-full mb-20 py-12">
                 <h2 class="text-xs text-orange-500 tracking-widest font-medium title-font mb-1">Search Results for :
                 </h2>
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-green-400"><?php echo $_GET['search'] ?>
                 </h1>
-            </div>
-            <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col border-b pb-10 mb-10 border-gray-800">
-            <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-orange-400 bg-gray-800 flex-shrink-0">
+        </div>
+            <?php
+                 $que = $_GET['search'];
+                 $sql = "SELECT * FROM `thread` WHERE MATCH (thread_title,thread_info) against ('$que')";
+                $res = mysqli_query($con,$sql);
+                $noData = true;
+        // <!-- Use a while loop to iterate through the searches -->
+        while($row = mysqli_fetch_assoc($res))
+        {
+            $noData = false;
+            $th_title = $row['thread_title'];
+            $th_info = $row['thread_info'];
+            $th_id = $row['thread_id'] ;         
+           
+            echo '<div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col border-b pb-10 mb-10 border-gray-800">
+                <div
+                    class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-orange-400 bg-gray-800 flex-shrink-0">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
                         <circle cx="6" cy="6" r="3"></circle>
@@ -37,18 +54,39 @@
                     </svg>
                 </div>
                 <div class="flex-grow sm:text-left text-justify mt-6 sm:mt-0">
-                    <h2 class="text-white text-lg title-font font-medium mb-2">The 400 Blows</h2>
-                    <p class="leading-relaxed text-base ">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                        taxidermy. </p>
-                    <a class="mt-3 text-green-500 inline-flex items-center" href="/categories">Learn More
+                    <h2 class="text-white text-lg title-font font-medium mb-2"> ' . $th_title . ' </h2>
+                    <p class="leading-relaxed text-base ">' . $th_info . ' </p>
+                    <a class="mt-3 text-green-500 inline-flex items-center" href="thread.php?thread_id=' . $th_id .'">Learn More
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
                 </div>
+            </div>';
+        }
+
+        if($noData)
+        {
+            echo '<div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col border-b pb-10 mb-10 border-gray-800">
+            <div
+                class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-orange-400 bg-gray-800 flex-shrink-0">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                </svg>
             </div>
-            <div class="flex flex-wrap -m-4">
+            <div class="flex-grow sm:text-left text-justify mt-6 sm:mt-0">
+                <h2 class="text-white text-lg title-font font-medium mb-2">Error 404</h2>
+                <p class="leading-relaxed text-xl ">No Results Found !!!!!!</p>
+            </div>
+        </div>'; 
+        }
+    ?>
+            
+            <div class="flex flex-wrap -m-4 py-10">
                 <div class="p-4 lg:w-1/4 sm:w-1/2 w-full">
                     <h2 class="font-medium title-font tracking-widest text-white mb-4 text-sm text-center sm:text-left">
                         Other Also Search for :</h2>
@@ -58,51 +96,31 @@
                 <div class="p-4 lg:w-1/4 sm:w-1/2 w-full">
 
                     <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1">
-                        <a class="mb-2">
+
+                    <?php
+
+                        
+                        $sql = "SELECT * FROM `category`order by RAND() limit 5";
+                        $res = mysqli_query($con,$sql);
+                        $alrt = true;
+                    
+                        // <!-- Use a for loop to iterate through the categories -->
+                
+                        while($row = mysqli_fetch_assoc($res))
+                        {
+                            $catid = $row['cat_id'];
+                            $title = $row['cat_name']; 
+                            echo '<a class="mb-2" href="threads_list.php?category_id='.$catid.'">
                             <span
                                 class="bg-gray-800 text-orange-400 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="3" class="w-3 h-3" viewBox="0 0 24 24">
                                     <path d="M20 6L9 17l-5-5"></path>
                                 </svg>
-                            </span>First Link
-                        </a>
-                        <a class="mb-2">
-                            <span
-                                class="bg-gray-800 text-orange-400 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="3" class="w-3 h-3" viewBox="0 0 24 24">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </span>Second Link
-                        </a>
-                        <a class="mb-2">
-                            <span
-                                class="bg-gray-800 text-orange-400 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="3" class="w-3 h-3" viewBox="0 0 24 24">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </span>Third Link
-                        </a>
-                        <a class="mb-2">
-                            <span
-                                class="bg-gray-800 text-orange-400 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="3" class="w-3 h-3" viewBox="0 0 24 24">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </span>Fourth Link
-                        </a>
-                        <a class="mb-2">
-                            <span
-                                class="bg-gray-800 text-orange-400 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="3" class="w-3 h-3" viewBox="0 0 24 24">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </span>Fifth Link
-                        </a>
+                            </span> '. $title .'
+                            </a>';
+                        }
+                    ?>
                     </nav>
                 </div>
             </div>

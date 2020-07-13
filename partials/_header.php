@@ -2,7 +2,7 @@
 
 session_start();
 
-
+$cnt = 0;
 
 echo' 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -10,7 +10,6 @@ echo'
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
-
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
@@ -27,6 +26,7 @@ echo'
 
         $sql = "SELECT * FROM `category`";
         $res = mysqli_query($con,$sql);
+        $alrt = true;
        
         // <!-- Use a for loop to iterate through the categories -->
    
@@ -44,18 +44,16 @@ echo'
     <div class="row mx-2">';
 
     if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
-{
+{   
     echo '<form class="form-inline my-2 my-lg-0 method="get" action="search.php"">
     <input class="form-control mr-sm-2" name = "search" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
     <p class="text-white px-5 py-1"> Welcome '. $_SESSION['useremail'].'</p>
     <a href ="partials/_logout.php" type="button" class="btn btn-outline-success ml-2" >Logout</a>
-
     </form>';
 }
-
-    else{
+    else 
+    {
         echo '<form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -63,7 +61,8 @@ echo'
                 <button type="button" class="btn btn-outline-success ml-2" data-toggle="modal" data-target="#singinModal">SIGN IN</button>
                 <button type="button" class="btn btn-outline-success ml-2" data-toggle="modal" data-target="#singupModal">SIGN UP</button>';
 
-        }
+    }
+    
 
 
     echo '</div>
